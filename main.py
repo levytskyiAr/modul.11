@@ -23,12 +23,6 @@ class Name(Field):
     pass
 
 class Birthday(Field):
-    def __init__(self, value):
-        if not self.is_valid_birthday(value):
-            raise ValueError("Invalid birthday")
-        super().__init__(value)
-
-
     @Field.value.setter
     def value(self, value: str):
         if not self.is_valid_birthday(value):
@@ -46,12 +40,6 @@ class Birthday(Field):
 
 
 class Phone(Field):
-    def __init__(self, value):
-        if not self.is_valid_phone(value):
-            raise ValueError("Invalid phone number")
-        super().__init__(value)
-
-    
     @Field.value.setter
     def value(self, value: str):
         if not self.is_valid_phone(value):
